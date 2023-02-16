@@ -25,8 +25,11 @@ spec:
           containerPort: 6379
           protocol: TCP
         volumeMounts:
-        - name: data
-          mountPath: /data
+        {{- if .Values.configmap }}
+        - name: config
+          mountPath: /opt/bitnami/redis/etc/redis.conf
+          subPath: redis.conf
+        {{- end }}
         env:
         - name: {{ include "redis.fullname" . }}
           valueFrom:

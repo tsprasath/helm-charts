@@ -18,3 +18,9 @@ resources:
 
 redis:
   password: ""
+
+## Redis config file
+##
+configmap: |-
+#  Redis configuration file
+
